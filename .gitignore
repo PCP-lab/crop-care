@@ -19,3 +19,21 @@ backend/.mypy_cache/
 .DS_Store
 .env
 *.log
+
+# --- Backend artifacts (keep out of git) ---
+backend/models/
+backend/images/
+backend/overlays/
+backend/yolo*/
+backend/yolov8*/
+backend/data/leaf_cutouts/
+backend/data/test_images/
+backend/outputs/
+backend/runs/
+backend/wandb/
+backend/.cache/
+backend/**/.ipynb_checkpoints
+backend/**/*.pt
+backend/**/*.bin
+backend/**/*.onnx
+backend/**/*.safetensors

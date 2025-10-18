@@ -1,0 +1,13 @@
+names:
+- leaf
+- spot
+nc: 2
+roboflow:
+  license: CC BY 4.0
+  project: leaf-spot-disease
+  url: https://universe.roboflow.com/ugalab/leaf-spot-disease/dataset/9
+  version: 9
+  workspace: ugalab
+test: ../test/images
+train: ../train/images
+val: ../valid/images

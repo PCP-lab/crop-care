@@ -1,0 +1,188 @@
+{
+  "version": "2025-09-22",
+  "hosts_note": "Hydrangea/Dogwood disease KB with weather rules and US state priors (nudges; tune with field data).",
+  "units": { "temp_c": "Celsius", "rain_mm": "millimeters", "dur_hours": "hours" },
+
+  "windows_supported": [7, 14],
+  "default_window_days": 14,
+
+  "features_expected": [
+    "T_mean_${W}", "T_min_${W}", "T_max_${W}",
+    "RH_mean_${W}", "RH_max_${W}",
+    "Rain_sum_${W}", "Rain_days_${W}", "Rain_hours_${W}",
+    "RH_hours_ge90_${W}", "LWD_hours_${W}",
+    "VPD_mean_${W}", "VPD_max_${W}",
+    "GDD_10_14", "Humid_streak_10"
+  ],
+
+  "diseases": [
+    {
+      "name": "Cercospora Leaf Spot",
+      "aliases": ["Cercospora leafspot", "Cercospora hydrangeae", "CLS"],
+      "hosts": ["Hydrangea", "Dogwood"],
+      "type": "fungal",
+      "weather_profile": { "notes": "Warm + muggy periods with frequent splash events (rain/overhead irrigation)." },
+      "region_priors": {
+        "notes": "High in warm, humid Southeast; moderate where summers are humid; low in arid regions.",
+        "by_state": {
+          "AL": 0.18, "AK": 0.00, "AZ": 0.00, "AR": 0.08, "CA": 0.02, "CO": 0.00, "CT": 0.02, "DE": 0.05, "DC": 0.05, "FL": 0.18,
+          "GA": 0.20, "HI": 0.10, "ID": 0.00, "IL": 0.05, "IN": 0.05, "IA": 0.02, "KS": 0.00, "KY": 0.08, "LA": 0.15, "ME": 0.00,
+          "MD": 0.06, "MA": 0.02, "MI": 0.03, "MN": 0.01, "MS": 0.15, "MO": 0.06, "MT": 0.00, "NE": 0.00, "NV": 0.00, "NH": 0.00,
+          "NJ": 0.04, "NM": 0.00, "NY": 0.02, "NC": 0.18, "ND": 0.00, "OH": 0.06, "OK": 0.03, "OR": 0.03, "PA": 0.05, "RI": 0.02,
+          "SC": 0.18, "SD": 0.00, "TN": 0.10, "TX": 0.10, "UT": 0.00, "VT": 0.00, "VA": 0.08, "WA": 0.03, "WV": 0.05, "WI": 0.02,
+          "WY": 0.00, "*": 0.00
+        }
+      },
+      "scoring": {
+        "rules": [
+          { "if": "T_mean_${W}>=20 && T_mean_${W}<=30", "add": 0.25 },
+          { "if": "RH_mean_${W}>=80", "add": 0.25 },
+          { "if": "RH_hours_ge90_${W}>=24 || LWD_hours_${W}>=11", "add": 0.25 },
+          { "if": "Rain_days_${W}>=2 || Rain_sum_${W}>=10", "add": 0.20 },
+          { "if": "Humid_streak_10>=3", "add": 0.05 }
+        ],
+        "cap": 1.0
+      }
+    },
+
+    {
+      "name": "Septoria Leaf Spot",
+      "aliases": ["Septoria leafspot", "Septoria spp."],
+      "hosts": ["Hydrangea", "Dogwood"],
+      "type": "fungal",
+      "weather_profile": { "notes": "Moderate temps + extended high humidity/leaf wetness; splash-dispersed." },
+      "region_priors": {
+        "notes": "Southeast + Mid-Atlantic strong; some presence into Ohio Valley.",
+        "by_state": {
+          "AL": 0.15, "AK": 0.00, "AZ": 0.00, "AR": 0.10, "CA": 0.02, "CO": 0.00, "CT": 0.03, "DE": 0.12, "DC": 0.10, "FL": 0.15,
+          "GA": 0.15, "HI": 0.06, "ID": 0.00, "IL": 0.06, "IN": 0.06, "IA": 0.03, "KS": 0.00, "KY": 0.10, "LA": 0.10, "ME": 0.00,
+          "MD": 0.12, "MA": 0.03, "MI": 0.05, "MN": 0.02, "MS": 0.12, "MO": 0.08, "MT": 0.00, "NE": 0.00, "NV": 0.00, "NH": 0.00,
+          "NJ": 0.05, "NM": 0.00, "NY": 0.05, "NC": 0.15, "ND": 0.00, "OH": 0.08, "OK": 0.03, "OR": 0.03, "PA": 0.05, "RI": 0.02,
+          "SC": 0.15, "SD": 0.00, "TN": 0.12, "TX": 0.06, "UT": 0.00, "VT": 0.00, "VA": 0.12, "WA": 0.03, "WV": 0.07, "WI": 0.03,
+          "WY": 0.00, "*": 0.00
+        }
+      },
+      "scoring": {
+        "rules": [
+          { "if": "T_mean_${W}>=16 && T_mean_${W}<=27", "add": 0.30 },
+          { "if": "RH_mean_${W}>=85", "add": 0.30 },
+          { "if": "RH_hours_ge90_${W}>=24 || LWD_hours_${W}>=12", "add": 0.25 },
+          { "if": "Rain_days_${W}>=2", "add": 0.15 }
+        ],
+        "cap": 1.0
+      }
+    },
+
+    {
+      "name": "Dogwood Anthracnose",
+      "aliases": ["Dogwood anthracnose", "Discula destructiva", "Anthracnose (dogwood)"],
+      "hosts": ["Hydrangea", "Dogwood"],
+      "type": "fungal",
+      "weather_profile": { "notes": "Cool, wet spring; sustained wetness boosts risk." },
+      "region_priors": {
+        "notes": "Northeast, Appalachians, Upper Midwest.",
+        "by_state": {
+          "AL": 0.02, "AK": 0.00, "AZ": 0.00, "AR": 0.03, "CA": 0.04, "CO": 0.00, "CT": 0.12, "DE": 0.06, "DC": 0.06, "FL": 0.01,
+          "GA": 0.05, "HI": 0.00, "ID": 0.00, "IL": 0.08, "IN": 0.08, "IA": 0.03, "KS": 0.00, "KY": 0.08, "LA": 0.01, "ME": 0.08,
+          "MD": 0.10, "MA": 0.12, "MI": 0.12, "MN": 0.10, "MS": 0.02, "MO": 0.05, "MT": 0.00, "NE": 0.00, "NV": 0.00, "NH": 0.10,
+          "NJ": 0.12, "NM": 0.00, "NY": 0.15, "NC": 0.10, "ND": 0.00, "OH": 0.12, "OK": 0.02, "OR": 0.06, "PA": 0.15, "RI": 0.10,
+          "SC": 0.05, "SD": 0.00, "TN": 0.10, "TX": 0.02, "UT": 0.00, "VT": 0.10, "VA": 0.12, "WA": 0.06, "WV": 0.12, "WI": 0.10,
+          "WY": 0.00, "*": 0.00
+        }
+      },
+      "scoring": {
+        "rules": [
+          { "if": "T_mean_${W}>=12 && T_mean_${W}<=22", "add": 0.30 },
+          { "if": "RH_mean_${W}>=85", "add": 0.30 },
+          { "if": "Rain_days_${W}>=3 || Rain_sum_${W}>=15", "add": 0.25 },
+          { "if": "RH_hours_ge90_${W}>=24 || LWD_hours_${W}>=12", "add": 0.15 }
+        ],
+        "cap": 1.0
+      }
+    },
+
+    {
+      "name": "Spot Anthracnose (Dogwood)",
+      "aliases": ["Spot Anthracnose", "Elsinoe corni", "Elsinoë corni"],
+      "hosts": ["Hydrangea", "Dogwood"],
+      "type": "fungal",
+      "weather_profile": { "notes": "Classic cool, wet spring disease; frequent rains + high RH." },
+      "region_priors": {
+        "notes": "Similar to Dogwood Anthracnose; cool/wet spring states.",
+        "by_state": {
+          "AL": 0.02, "AK": 0.00, "AZ": 0.00, "AR": 0.03, "CA": 0.03, "CO": 0.00, "CT": 0.10, "DE": 0.05, "DC": 0.05, "FL": 0.01,
+          "GA": 0.05, "HI": 0.00, "ID": 0.00, "IL": 0.08, "IN": 0.08, "IA": 0.03, "KS": 0.00, "KY": 0.08, "LA": 0.01, "ME": 0.06,
+          "MD": 0.08, "MA": 0.10, "MI": 0.10, "MN": 0.08, "MS": 0.02, "MO": 0.05, "MT": 0.00, "NE": 0.00, "NV": 0.00, "NH": 0.08,
+          "NJ": 0.10, "NM": 0.00, "NY": 0.12, "NC": 0.10, "ND": 0.00, "OH": 0.10, "OK": 0.02, "OR": 0.05, "PA": 0.12, "RI": 0.08,
+          "SC": 0.05, "SD": 0.00, "TN": 0.08, "TX": 0.02, "UT": 0.00, "VT": 0.08, "VA": 0.10, "WA": 0.05, "WV": 0.10, "WI": 0.08,
+          "WY": 0.00, "*": 0.00
+        }
+      },
+      "scoring": {
+        "rules": [
+          { "if": "T_mean_${W}>=10 && T_mean_${W}<=22", "add": 0.35 },
+          { "if": "RH_mean_${W}>=85", "add": 0.30 },
+          { "if": "Rain_days_${W}>=3", "add": 0.20 },
+          { "if": "RH_hours_ge90_${W}>=24", "add": 0.15 }
+        ],
+        "cap": 1.0
+      }
+    },
+
+    {
+      "name": "Phyllosticta Leaf Spot",
+      "aliases": ["Phyllosticta leafspot", "Phyllosticta spp."],
+      "hosts": ["Hydrangea", "Dogwood"],
+      "type": "fungal",
+      "weather_profile": { "notes": "Shaded, moist microclimates; high RH/leaf wetness; cosmetic in many cases." },
+      "region_priors": {
+        "notes": "Favored in shaded, coastal/humid West Coast and Southeast gardens.",
+        "by_state": {
+          "AL": 0.08, "AK": 0.00, "AZ": 0.00, "AR": 0.04, "CA": 0.12, "CO": 0.00, "CT": 0.05, "DE": 0.05, "DC": 0.06, "FL": 0.10,
+          "GA": 0.10, "HI": 0.10, "ID": 0.00, "IL": 0.04, "IN": 0.04, "IA": 0.02, "KS": 0.00, "KY": 0.05, "LA": 0.06, "ME": 0.03,
+          "MD": 0.06, "MA": 0.05, "MI": 0.04, "MN": 0.02, "MS": 0.06, "MO": 0.04, "MT": 0.00, "NE": 0.00, "NV": 0.00, "NH": 0.02,
+          "NJ": 0.05, "NM": 0.00, "NY": 0.05, "NC": 0.08, "ND": 0.00, "OH": 0.05, "OK": 0.02, "OR": 0.12, "PA": 0.05, "RI": 0.05,
+          "SC": 0.08, "SD": 0.00, "TN": 0.06, "TX": 0.04, "UT": 0.00, "VT": 0.02, "VA": 0.06, "WA": 0.12, "WV": 0.04, "WI": 0.03,
+          "WY": 0.00, "*": 0.00
+        }
+      },
+      "scoring": {
+        "rules": [
+          { "if": "T_mean_${W}>=15 && T_mean_${W}<=28", "add": 0.25 },
+          { "if": "RH_mean_${W}>=80", "add": 0.25 },
+          { "if": "RH_hours_ge90_${W}>=20 || LWD_hours_${W}>=10", "add": 0.25 },
+          { "if": "Rain_days_${W}>=2", "add": 0.15 },
+          { "if": "VPD_mean_${W}<=1.0", "add": 0.10 }
+        ],
+        "cap": 1.0
+      }
+    },
+
+    {
+      "name": "Bacterial Leaf Scorch",
+      "aliases": ["Bacterial leaf scorch", "Xylella fastidiosa", "Leaf scorch (physiological)"],
+      "hosts": ["Hydrangea", "Dogwood"],
+      "type": "bacterial/abiotic look-alike",
+      "weather_profile": { "notes": "Heat/drought stress look-alike; useful counter-signal when conditions are hot/dry." },
+      "region_priors": {
+        "notes": "Hot/dry Southwest + Southern heat; interior West.",
+        "by_state": {
+          "AL": 0.08, "AK": 0.00, "AZ": 0.15, "AR": 0.06, "CA": 0.10, "CO": 0.08, "CT": 0.00, "DE": 0.00, "DC": 0.00, "FL": 0.08,
+          "GA": 0.08, "HI": 0.00, "ID": 0.06, "IL": 0.04, "IN": 0.04, "IA": 0.02, "KS": 0.08, "KY": 0.04, "LA": 0.06, "ME": 0.00,
+          "MD": 0.02, "MA": 0.00, "MI": 0.02, "MN": 0.00, "MS": 0.06, "MO": 0.05, "MT": 0.06, "NE": 0.06, "NV": 0.10, "NH": 0.00,
+          "NJ": 0.00, "NM": 0.15, "NY": 0.00, "NC": 0.05, "ND": 0.02, "OH": 0.03, "OK": 0.10, "OR": 0.04, "PA": 0.02, "RI": 0.00,
+          "SC": 0.06, "SD": 0.06, "TN": 0.05, "TX": 0.15, "UT": 0.10, "VT": 0.00, "VA": 0.04, "WA": 0.04, "WV": 0.02, "WI": 0.01,
+          "WY": 0.08, "*": 0.00
+        }
+      },
+      "scoring": {
+        "rules": [
+          { "if": "T_max_${W}>=30 && VPD_mean_${W}>=1.5", "add": 0.50 },
+          { "if": "Rain_days_${W}<=1", "add": 0.30 },
+          { "if": "RH_mean_${W}<=60", "add": 0.20 }
+        ],
+        "cap": 1.0
+      }
+    }
+  ]
+}

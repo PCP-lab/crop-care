@@ -1,0 +1,179 @@
+{
+  "version": "2025-09-22",
+  "host": "Hydrangea",
+  "notes": "Use FRAC codes; always follow the product label and local regulations.",
+  "default_safety": {
+    "disclaimer": "Always read and follow the pesticide label. Check state restrictions and PHI/REI.",
+    "ppe": ["gloves", "eye protection", "long sleeves"],
+    "bee_protection": "Avoid spraying during bloom; spray at dusk/dawn when bees are not active."
+  },
+  "diseases": [
+    {
+      "name": "Cercospora Leaf Spot",
+      "group": "fungal_leaf_spot",
+      "risk_actions": {
+        "low": {
+          "tips": [
+            "Remove spotted leaves and fallen debris to reduce inoculum.",
+            "Irrigate at the soil level; keep foliage dry when possible.",
+            "Open canopy for airflow with light pruning; avoid dense shade."
+          ]
+        },
+        "medium": {
+          "tips": [
+            "Apply a protectant fungicide (FRAC M05, e.g., chlorothalonil) before wet/humid periods.",
+            "Rotate with a QoI (FRAC 11) or DMI (FRAC 3) after 7–10 days; avoid repeating the same FRAC more than twice.",
+            "Mulch soil surface to limit splash dispersal from residues."
+          ]
+        },
+        "high": {
+          "tips": [
+            "Initiate a 7-day spray interval using FRAC M05 → FRAC 11 → FRAC 3 rotation.",
+            "Eliminate overhead irrigation and minimize leaf wetness duration.",
+            "Increase scouting frequency (every 3–4 days) and remove heavily affected foliage."
+          ]
+        }
+      }
+    },
+
+    {
+      "name": "Septoria Leaf Spot",
+      "group": "fungal_leaf_spot",
+      "risk_actions": {
+        "low": {
+          "tips": [
+            "Collect and discard infected leaves; keep beds clean of litter.",
+            "Water early morning to shorten leaf wetness period.",
+            "Improve spacing around plants to enhance drying and airflow."
+          ]
+        },
+        "medium": {
+          "tips": [
+            "Protect ahead of rain with FRAC M05; reapply in 7–10 days if wet weather persists.",
+            "Alternate to FRAC 11 on the next spray to avoid resistance build-up.",
+            "Reduce splash by mulching and lowering hose pressure near plants."
+          ]
+        },
+        "high": {
+          "tips": [
+            "Tighten to a 7-day rotation FRAC M05 ↔ FRAC 11 (or FRAC 3 if needed) through the wet spell.",
+            "Avoid working plants when foliage is wet; sanitize tools between plants.",
+            "Remove and dispose of the most heavily spotted leaves promptly."
+          ]
+        }
+      }
+    },
+
+    {
+      "name": "Phyllosticta Leaf Spot",
+      "group": "fungal_leaf_spot",
+      "risk_actions": {
+        "low": {
+          "tips": [
+            "Prune lightly for light/air; reduce shade and crowding.",
+            "Avoid overhead irrigation; switch to drip or soaker hoses.",
+            "Rake and remove leaf litter to cut reinfection sources."
+          ]
+        },
+        "medium": {
+          "tips": [
+            "Begin protectant coverage with FRAC M05 at first symptoms.",
+            "If conditions stay humid, follow with FRAC 3 after 7–10 days.",
+            "Keep irrigation short and early; do not wet foliage late day."
+          ]
+        },
+        "high": {
+          "tips": [
+            "Run a 7-day rotation FRAC M05 → FRAC 3 (optionally include FRAC 11 where labeled).",
+            "Increase canopy airflow (selective thinning) to speed drying.",
+            "Disinfect shears between cuts; bag removed foliage immediately."
+          ]
+        }
+      }
+    },
+
+    {
+      "name": "Dogwood Anthracnose",
+      "group": "anthracnose",
+      "risk_actions": {
+        "low": {
+          "tips": [
+            "Remove symptomatic leaves/twigs; dispose off-site.",
+            "Promote airflow; avoid prolonged shade and crowding.",
+            "Irrigate at soil level; avoid wetting foliage in cool, damp weather."
+          ]
+        },
+        "medium": {
+          "tips": [
+            "Protect during cool, wet periods with FRAC M05.",
+            "Alternate to FRAC 11 on the next application (7–10 days later).",
+            "Keep mulch ring to reduce splash and limit trunk stress."
+          ]
+        },
+        "high": {
+          "tips": [
+            "Adopt a 7-day rotation FRAC M05 ↔ FRAC 11 (add FRAC 3 where labeled) through the outbreak window.",
+            "Avoid overhead irrigation entirely; limit handling of wet foliage.",
+            "Scout twice weekly; remove heavily infected tissues quickly."
+          ]
+        }
+      }
+    },
+
+    {
+      "name": "Spot Anthracnose (Dogwood)",
+      "group": "anthracnose",
+      "risk_actions": {
+        "low": {
+          "tips": [
+            "Sanitation of leaf litter and spotted leaves to reduce inoculum.",
+            "Favor morning irrigation and rapid drying; avoid leaf wetness late day.",
+            "Thin lightly to improve air movement through the canopy."
+          ]
+        },
+        "medium": {
+          "tips": [
+            "Apply FRAC M05 as a protectant ahead of frequent rains.",
+            "Rotate to FRAC 11 after 7–10 days if wet weather persists.",
+            "Use mulch to limit raindrop splash to lower foliage."
+          ]
+        },
+        "high": {
+          "tips": [
+            "Maintain a 7-day rotation FRAC M05 ↔ FRAC 11 during persistent wet spells (add FRAC 3 where labeled).",
+            "Stop overhead watering; reduce any leaf wetness drivers.",
+            "Increase scouting to every 3–4 days; promptly remove worst-affected leaves."
+          ]
+        }
+      }
+    },
+
+    {
+      "name": "Bacterial Leaf Scorch",
+      "group": "bacterial_scorch",
+      "risk_actions": {
+        "low": {
+          "tips": [
+            "Irrigate deeply but infrequently; avoid chronic drought stress.",
+            "Mulch 5–8 cm to conserve soil moisture and moderate temperature.",
+            "Prune dead twigs; sanitize tools between cuts."
+          ]
+        },
+        "medium": {
+          "tips": [
+            "Adjust irrigation scheduling to morning cycles; prevent mid-day wilt.",
+            "Reduce heat stress with temporary shade during extreme heat.",
+            "Consult local guidance for copper products; efficacy is limited."
+          ]
+        },
+        "high": {
+          "tips": [
+            "Seek diagnostic confirmation to rule out abiotic scorch or other pathogens.",
+            "Implement strict moisture management and stress reduction plan.",
+            "Avoid pruning during extreme heat; prioritize plant recovery measures."
+          ]
+        }
+      }
+    }
+  ]
+}
