@@ -1,0 +1,36 @@
+{
+  "@@locale": "es",
+  "appTitle": "Crop Care",
+  "splashSubtitle": "Detectar. Proteger. Prosperar.",
+
+  "homeTitle": "Inicio",
+  "homeQuestion": "¿Mis plantas están saludables?",
+  "homeInstruction": "Toca la tarjeta para comenzar",
+  "plantName": "Nombre de la planta: {name}",
+  "@plantName": {
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Nuez"
+      }
+    }
+  },
+  "plantFactMoisture": "Nivel de humedad {percent}%",
+  "@plantFactMoisture": {
+    "placeholders": {
+      "percent": {
+        "type": "int",
+        "example": "68"
+      }
+    }
+  },
+
+  "resultsTitle": "Resultados",
+  "uploadPhoto": "Subir la foto",
+  "camera": "Cámara",
+  "gallery": "Galería",
+  "description": "Descripción",
+  "dateNoticed": "Fecha observada",
+  "diagnose": "Diagnosticar",
+  "descriptionHint": "Describe lo que ves (manchas, decoloración, plagas, marchitez, etc.)"
+}

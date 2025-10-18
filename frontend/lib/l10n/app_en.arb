@@ -1,0 +1,36 @@
+{
+  "@@locale": "en",
+  "appTitle": "Crop Care",
+  "splashSubtitle": "Detect. Protect. Prosper.",
+
+  "homeTitle": "Home",
+  "homeQuestion": "Are my plants healthy?",
+  "homeInstruction": "Tap on the card to start",
+  "plantName": "Plant name: {name}",
+  "@plantName": {
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Pecan"
+      }
+    }
+  },
+  "plantFactMoisture": "Moisture level {percent}%",
+  "@plantFactMoisture": {
+    "placeholders": {
+      "percent": {
+        "type": "int",
+        "example": "68"
+      }
+    }
+  },
+
+  "resultsTitle": "Results",
+  "uploadPhoto": "Upload the photo",
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "description": "Description",
+  "dateNoticed": "Date noticed",
+  "diagnose": "Diagnose",
+  "descriptionHint": "Describe what you see(spots,discoloration,pests,wilting, ec.)"
+}

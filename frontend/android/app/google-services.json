@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "481075694642",
+    "project_id": "crop-care-d135b",
+    "storage_bucket": "crop-care-d135b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481075694642:android:4906bd8c17cbf03266c02b",
+        "android_client_info": {
+          "package_name": "edu.uga.pcp.crop_care"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7St-Ks1vo3sVyP6ZE7n0u6E7tGep9bn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
