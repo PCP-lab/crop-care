@@ -1,4 +1,12 @@
-# --- Flutter / Android ---
+# ==========================================================
+# 🌿 Crop-Care Monorepo (.gitignore)
+# Frontend: Flutter / Android
+# Backend: Python (FastAPI, ML, plant_disease)
+# ==========================================================
+
+# ===============================
+# --- Flutter / Android frontend ---
+# ===============================
 **/build/
 **/.dart_tool/
 **/.gradle/
@@ -7,33 +15,110 @@
 **/DerivedData/
 **/local.properties
 **/*.iml
+**/*.apk
+**/*.aab
 
-# --- Python backend (future) ---
-backend/.venv/
-backend/__pycache__/
-backend/*.py[cod]
-backend/.pytest_cache/
-backend/.mypy_cache/
+# ===============================
+# --- Python backend(s) ---
+# ===============================
+# Virtual environments and caches
+**/.venv/
+**/venv/
+**/env/
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
 
-# --- Common ---
-.DS_Store
+# Compiled Python files
+*.py[cod]
+*.so
+
+# Jupyter
+**/.ipynb_checkpoints/
+
+# Environment and secrets
 .env
-*.log
+*.env
+secrets*.json
+*.key
+*.pem
 
-# --- Backend artifacts (keep out of git) ---
-backend/models/
-backend/images/
-backend/overlays/
-backend/yolo*/
-backend/yolov8*/
-backend/data/leaf_cutouts/
-backend/data/test_images/
-backend/outputs/
-backend/runs/
-backend/wandb/
-backend/.cache/
-backend/**/.ipynb_checkpoints
-backend/**/*.pt
-backend/**/*.bin
-backend/**/*.onnx
-backend/**/*.safetensors
+# Logs and temp files
+*.log
+*.tmp
+*.cache
+nohup.out
+
+# ===============================
+# --- Machine Learning Artifacts ---
+# ===============================
+# General ML outputs and tracking
+**/runs/
+**/wandb/
+**/mlruns/
+**/outputs/
+**/overlays/
+**/images/
+**/reports/
+**/tensorboard/
+**/tb_logs/
+
+# YOLO / segmentation
+**/yolo*/
+**/yolov8*/
+**/yolov11*/
+**/yolov8seg_preds_single/
+**/yolo_seg_smoketest/*.jpg
+
+# Model checkpoints and weights
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.onnx
+*.safetensors
+*.tflite
+*.h5
+*.tar
+*.zip
+
+# ===============================
+# --- Data files ---
+# ===============================
+# Full datasets
+**/data/
+!**/data/README.md
+!**/data/samples/**
+**/data/**/.ipynb_checkpoints/
+
+# Notebook-generated datasets
+notebooks/Leaf-spot-disease-*/
+notebooks/**/train/
+notebooks/**/valid/
+notebooks/**/test/
+notebooks/**/images/
+notebooks/**/labels/
+notebooks/**/runs/
+
+# ===============================
+# --- OS / IDE junk ---
+# ===============================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ===============================
+# --- Keep these ---
+# ===============================
+# Allow lightweight docs & examples
+!**/README.md
+!**/LICENSE
+!**/requirements.txt
+!**/environment.yml
+!**/Makefile
+!**/Dockerfile
+!**/sample_*
+!**/data/samples/**
+!**/models/README.md
